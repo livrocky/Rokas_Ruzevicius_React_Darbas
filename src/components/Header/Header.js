@@ -1,26 +1,26 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
 
 function Header(props) {
   return (
     <header>
-      <nav className='main-nav'>
+      <nav className={css['main-nav']}>
         <div className='logo'>
-          <img src='' alt='' />
+          <img src='../public/assets/logo.png' alt='logo' />
         </div>
         <div className='container'>
-          <Link to='/' className={css['nav-link']}>
+          <NavLink to='/' className={css['nav-link']}>
             Home
-          </Link>
-          <Link to='/add' className={css['nav-link']}>
+          </NavLink>
+          <NavLink to='/add' className={css['nav-link']}>
             Add
-          </Link>
-          <Link to='/login' className={css['nav-link']}>
+          </NavLink>
+          <NavLink to='/login' className={css['nav-link']}>
             Login
-          </Link>
-          <Link to='/register' className={css['nav-link']}>
+          </NavLink>
+          <NavLink to='/register' className={css['nav-link']}>
             Register
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </header>

@@ -1,14 +1,15 @@
 header {
-    background-color: rgb(90, 143, 186);
+    /* background-color: rgb(90, 143, 186); */
   }
   
   .main-nav {
-    display: flex;
     gap: 20px;
-    justify-content: left;
+    display: flex;
+    justify-content: space-between;
   }
   
-  .main-nav .nav-link {
-    display: block;
-    padding: 20px 25px;
+  .nav-link {
+    padding: 20px;
   }
+
+  
