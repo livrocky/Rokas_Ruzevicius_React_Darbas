@@ -9,16 +9,16 @@ function Header(props) {
           <img src='' alt='' />
         </div>
         <div className='container'>
-          <Link to='' className={css['nav-link']}>
+          <Link to='/' className={css['nav-link']}>
             Home
           </Link>
-          <Link to='' className={css['nav-link']}>
+          <Link to='/add' className={css['nav-link']}>
             Add
           </Link>
-          <Link to='' className={css['nav-link']}>
+          <Link to='/login' className={css['nav-link']}>
             Login
           </Link>
-          <Link to='' className={css['nav-link']}>
+          <Link to='/register' className={css['nav-link']}>
             Register
           </Link>
         </div>
