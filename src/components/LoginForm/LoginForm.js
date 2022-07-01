@@ -2,7 +2,7 @@ import css from './LoginForm.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 
@@ -13,7 +13,6 @@ const initValues = {
 function LoginForm(props) {
   const history = useHistory();
   const ctx = useAuthCtx();
-  const { login } = useContext(AuthContext);
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
