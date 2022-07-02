@@ -1,6 +1,6 @@
 header {
   /* border: 2px   solid brown; */
-    /* background-color:rgb(220, 194, 159) */
+    /* background-color:snow; */
   }
   
   .main-nav {
@@ -11,18 +11,22 @@ header {
   }
   
   .nav-link {
-    padding: 10px;
-    margin: 10px;
+    padding: 15px 20px;
+    /* margin: 20px; */
     text-decoration: none;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
   }
 
   .nav-link:hover {
-    background-color: brown;
+    background-color:lightseagreen;
     color: snow;
 }
 
 .container {
   display: flex;
   align-items: center;
+}
+
+.img {
+  width: 80px;
 }

@@ -9,7 +9,7 @@ function Header(props) {
     <header>
       <nav className={css['main-nav']}>
         <div className={css.logo}>
-          <img className={css.img} src='./assets/logo.png' alt='logo' />
+          <img className={css.img} src='./assets/logo7.png' alt='logo' />
         </div>
         <div className={css.container}>
           {!isUserLoggedIn && (
