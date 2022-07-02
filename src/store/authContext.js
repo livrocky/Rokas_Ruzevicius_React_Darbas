@@ -12,7 +12,7 @@ const AuthContext = createContext({
 AuthContext.displayName = 'AuthContext';
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem('posts-token'));
+  const [token, setToken] = useState(localStorage.getItem('token'));
   const [userEmail, setUserEmail] = useState('');
 
   const login = (gotToken, gotEmail) => {

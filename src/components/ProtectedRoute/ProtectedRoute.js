@@ -1,5 +1,5 @@
 import { Route } from 'react-router';
-import { useAuthCtx } from './../../store/authContext';
+import { useAuthCtx } from '../../store/authContext';
 import { Link } from 'react-router-dom';
 import css from '../ProtectedRoute/ProtectedRoute.module.css';
 

@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import { useAuthCtx } from '../../store/authContext';
 import css from './Header.module.css';
 
-function Header(props) {
+function Header() {
+  const { isUserLoggedIn, logout, userEmail } = useAuthCtx;
   return (
     <header>
       <nav className={css['main-nav']}>
@@ -9,18 +11,33 @@ function Header(props) {
           <img className={css.img} src='./assets/logo.png' alt='logo' />
         </div>
         <div className='container'>
-          <NavLink to='/' className={css['nav-link']}>
-            Home
-          </NavLink>
-          <NavLink to='/add' className={css['nav-link']}>
-            Add
-          </NavLink>
-          <NavLink to='/login' className={css['nav-link']}>
-            Login
-          </NavLink>
-          <NavLink to='/register' className={css['nav-link']}>
-            Register
-          </NavLink>
+          {isUserLoggedIn && (
+            <>
+              <NavLink className={css['nav-link']} to={'/'}>
+                Home
+              </NavLink>
+              <NavLink className={css['nav-link']} to={'/add'}>
+                Add
+              </NavLink>
+              <NavLink onClick={logout} className={css['nav-link']} to={'/login'}>
+                Logout
+              </NavLink>
+              <a className='nav-link disabled' href='/'>
+                {/* Hello {userEmail.split('@')[0]} */}
+                {userEmail}
+              </a>
+            </>
+          )}
+          {!isUserLoggedIn && (
+            <>
+              <NavLink className={css['nav-link']} to={'/login'}>
+                Login
+              </NavLink>
+              <NavLink className={css['nav-link']} to={'/register'}>
+                Register
+              </NavLink>
+            </>
+          )}
         </div>
       </nav>
     </header>
