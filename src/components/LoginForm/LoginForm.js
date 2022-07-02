@@ -65,7 +65,7 @@ function LoginForm(props) {
       {formik.touched.password && formik.errors.password && (
         <p className={css.errorMsg}>{formik.errors.password}</p>
       )}
-      <Button></Button>
+      <Button submit>Login</Button>
     </form>
   );
 }

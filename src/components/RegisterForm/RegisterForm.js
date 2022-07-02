@@ -108,7 +108,7 @@ function RegisterForm() {
         <p className={css.errorMsg}>{formik.errors.repeatPassword}</p>
       )}
 
-      <Button />
+      <Button submit>Register</Button>
     </form>
   );
 }

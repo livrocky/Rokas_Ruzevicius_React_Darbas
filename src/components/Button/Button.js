@@ -1,9 +1,11 @@
 import css from '../Button/Button.module.css';
 
-function Button() {
+function Button(props) {
   return (
     <div>
-      <button className={css.registerBtn} type='submit'></button>
+      <button type={props.submit ? 'submit' : 'button'} className={css.registerBtn}>
+        {props.children}
+      </button>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import AddPage from './pages/AddPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -18,12 +19,12 @@ function App() {
         <Route path={'/login'}>
           <LoginPage />
         </Route>
-        <Route path={'/add'}>
+        <ProtectedRoute path={'/add'}>
           <AddPage />
-        </Route>
-        <Route path={'/'}>
+        </ProtectedRoute>
+        <ProtectedRoute path={'/'}>
           <HomePage />
-        </Route>
+        </ProtectedRoute>
         <Route path={'*'}>
           <NotFoundPage />
         </Route>
