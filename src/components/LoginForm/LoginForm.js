@@ -11,7 +11,7 @@ const initValues = {
   email: 'rokas@rokas.lt',
   password: 'labaslabas',
 };
-function LoginForm(props) {
+function LoginForm() {
   const history = useHistory();
   const ctx = useAuthCtx();
   const formik = useFormik({

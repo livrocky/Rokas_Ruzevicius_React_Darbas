@@ -75,7 +75,7 @@ function RegisterForm() {
         className={formik.touched.email && formik.errors.email ? css.errorInput : ''}
         name='email'
         type='text'
-        placeholder='Your email'
+        placeholder='Enter your email'
       />
       {formik.touched.email && formik.errors.email && (
         <p className={css.errorMsg}>{formik.errors.email}</p>
@@ -87,7 +87,7 @@ function RegisterForm() {
         className={formik.touched.password && formik.errors.password ? css.errorInput : ''}
         name='password'
         type='password'
-        placeholder='Your password'
+        placeholder='Enter your password'
       />
       {formik.touched.password && formik.errors.password && (
         <p className={css.errorMsg}>{formik.errors.password}</p>
