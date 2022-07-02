@@ -22,7 +22,7 @@ function App() {
         <ProtectedRoute path={'/add'}>
           <AddPage />
         </ProtectedRoute>
-        <ProtectedRoute path={'/'}>
+        <ProtectedRoute exact path={'/'}>
           <HomePage />
         </ProtectedRoute>
         <Route path={'*'}>
