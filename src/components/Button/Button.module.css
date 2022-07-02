@@ -1,0 +1,11 @@
+    .registerBtn {
+        font-size: 15px;
+        border: 1px solid grey; 
+        border-radius: 0.5rem;
+        padding: 10px;
+      }
+
+      button:hover {
+          color:bisque;
+          background-color:brown;
+      }

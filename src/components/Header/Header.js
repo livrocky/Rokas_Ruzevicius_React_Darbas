@@ -6,7 +6,7 @@ function Header(props) {
     <header>
       <nav className={css['main-nav']}>
         <div className='logo'>
-          <img src='../public/assets/logo.png' alt='logo' />
+          <img className={css.img} src='./assets/logo.png' alt='logo' />
         </div>
         <div className='container'>
           <NavLink to='/' className={css['nav-link']}>

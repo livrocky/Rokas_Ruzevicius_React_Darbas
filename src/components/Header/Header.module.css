@@ -1,15 +1,21 @@
 header {
-    /* background-color: rgb(90, 143, 186); */
+  /* border: 2px   solid brown; */
+    /* background-color:rgb(220, 194, 159) */
   }
   
   .main-nav {
     gap: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   
   .nav-link {
     padding: 20px;
+    text-decoration: none;
   }
 
-  
+  .nav-link:hover {
+    background-color: brown;
+    color: snow;
+}

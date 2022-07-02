@@ -5,6 +5,7 @@ import { baseUrl, myFetch } from '../../utils';
 // import { useContext } from 'react';
 import { useAuthCtx } from '../../store/authContext';
 import { useHistory } from 'react-router-dom';
+import Button from '../Button/Button';
 
 const initValues = {
   email: '',
@@ -42,7 +43,7 @@ function RegisterForm() {
   //   console.log('formik.values ===', formik.values);
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form className={css.container} onSubmit={formik.handleSubmit}>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -83,7 +84,7 @@ function RegisterForm() {
         <p className={css.errorMsg}>{formik.errors.repeatPassword}</p>
       )}
 
-      <button type='submit'>Register</button>
+      <Button />
     </form>
   );
 }
