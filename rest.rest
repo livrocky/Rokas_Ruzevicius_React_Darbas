@@ -1,0 +1,8 @@
+###
+POST https://autumn-delicate-wilderness.glitch.me/v1/auth/register
+Content-Type: application/json
+
+{
+    "email": "rokas@burokas.com",
+    "password": "123456"
+}

@@ -19,12 +19,12 @@ const AuthProvider = ({ children }) => {
     // console.log('gotToken ===', gotToken);
     setToken(gotToken);
     setUserEmail(gotEmail);
-    localStorage.setItem('posts-token', gotToken);
+    localStorage.setItem('token', gotToken);
   };
   const logout = () => {
     setToken(null);
     setUserEmail(null);
-    localStorage.removeItem('posts-token');
+    localStorage.removeItem('token');
   };
 
   const ctx = {

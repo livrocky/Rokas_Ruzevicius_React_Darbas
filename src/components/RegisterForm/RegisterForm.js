@@ -1,10 +1,10 @@
 import css from '../RegisterForm/Register.module.css';
 import { useFormik } from 'formik';
+import { useHistory } from 'react-router-dom';
+import { useAuthCtx } from '../../store/authContext';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
 // import { useContext } from 'react';
-import { useAuthCtx } from '../../store/authContext';
-import { useHistory } from 'react-router-dom';
 import Button from '../Button/Button';
 
 const initValues = {
@@ -12,6 +12,7 @@ const initValues = {
   password: '',
   repeatPassword: '',
 };
+
 function RegisterForm() {
   const history = useHistory();
   const ctx = useAuthCtx();
@@ -19,31 +20,54 @@ function RegisterForm() {
     initialValues: initValues,
     validationSchema: Yup.object({
       email: Yup.string().email('Patikrinkite savo email').required(),
-      password: Yup.string().min(4, 'Maziausiai 4 simboliai').max(20).required(),
-      repeatPassword: Yup.string().min(4, 'Maziausiai 4 simboliai').max(20).required(),
+      password: Yup.string().min(4, 'At least 4 symbols').max(20).required(),
+      repeatPassword: Yup.string()
+        .required()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match!'),
     }),
+
+    // onSubmit: async (values) => {
+    //   const valueCopy = { ...values };
+    //   delete valueCopy['repeatPassword'];
+    //   console.log('values ===', values);
+    //   console.log('valueCopy===', valueCopy);
+    //   const fetchResult = await myFetch(`${baseUrl}/register`, 'POST', valueCopy);
+    //   // ar gavom token
+    //   if (fetchResult.success) {
+    //     // turim token
+    //     ctx.register(fetchResult.token, valueCopy.email);
+    //     // redirect to /login
+    //     history.replace('/login');
+    //   }
+    //   console.log('fetchResult ===', fetchResult);
+    //   console.log('submitting values', values);
+    // },
+
     onSubmit: async (values) => {
-      const valueCopy = { ...values };
-      delete valueCopy['repeatPassword'];
+      const valuesCopy = { ...values };
+      delete valuesCopy['repeatPassword'];
       console.log('values ===', values);
-      console.log('valueCopy===', valueCopy);
-      const fetchResult = await myFetch(`${baseUrl}/register`, 'POST', valueCopy);
-      // ar gavom token
-      if (fetchResult.success) {
-        // turim token
-        ctx.register(fetchResult.token, values.email);
-        // redirect to /login
+      console.log('valuesCopy ===', valuesCopy);
+      const registerResult = await myFetch(`${baseUrl}/register`, 'POST', valuesCopy);
+      if (registerResult.changes === 1) {
+        ctx.login(registerResult.token, valuesCopy.email);
         history.replace('/login');
       }
-      console.log('fetchResult ===', fetchResult);
+      console.log('registerResult ===', registerResult);
+
+      console.log('submiting values ===', values);
     },
   });
 
-  //   console.log('formik.touched ===', formik.touched);
-  //   console.log('formik.values ===', formik.values);
+  function matchPass() {
+    const { password, repeatPassword } = initValues;
+    if (password !== repeatPassword) {
+      console.log('Passwords does not match');
+    }
+  }
 
   return (
-    <form className={css.container} onSubmit={formik.handleSubmit}>
+    <form className={css.container} onSubmit={formik.handleSubmit} onBlur={matchPass}>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -90,3 +114,5 @@ function RegisterForm() {
 }
 
 export default RegisterForm;
+
+//************************************************************/

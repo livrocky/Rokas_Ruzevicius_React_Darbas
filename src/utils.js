@@ -19,6 +19,7 @@ export async function myFetchAuth(url, token) {
     const options = {
       headers: {
         'Content-Type': 'application/json',
+
         Authorization: `Bearer ${token}`,
       },
     };
@@ -33,5 +34,3 @@ export async function myFetchAuth(url, token) {
 
 export const baseUrl = process.env.REACT_APP_BACKEND_URL;
 if (!baseUrl) throw new Error('baseUrl nerastas');
-
-// myFetch('https://reqres.in/api/login', 'POST', { name: 'James' });
