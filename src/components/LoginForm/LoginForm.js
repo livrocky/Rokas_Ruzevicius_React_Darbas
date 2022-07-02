@@ -5,6 +5,7 @@ import { baseUrl, myFetch } from '../../utils';
 // import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
+import Button from '../Button/Button';
 
 const initValues = {
   email: 'rokas@rokas.lt',
@@ -16,22 +17,22 @@ function LoginForm(props) {
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
-      email: Yup.string().email('Patikrinkite savo email').required(),
-      password: Yup.string().min(4, 'Maziausiai 4 simboliai').max(20).required(),
+      email: Yup.string().email('Please check your Email').required(),
+      password: Yup.string().min(4, 'At least 4 symbols are required').max(20).required(),
     }),
     onSubmit: async (values) => {
       console.log('values ===', values);
 
       const fetchResult = await myFetch(`${baseUrl}/login`, 'POST', values);
       // ar gavom token
-      if (fetchResult.success) {
+      if (fetchResult.msg === 'Successfully logged in') {
         // turim token
 
         ctx.login(fetchResult.token, values.email);
         // redirect to /posts
-        history.replace('/posts');
+        history.replace('/home');
       }
-      console.log('fetchResulg ===', fetchResult);
+      console.log('fetchResult ===', fetchResult);
     },
   });
 
@@ -39,7 +40,7 @@ function LoginForm(props) {
   // console.log('formik.values ===', formik.values);
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form className={css.container} onSubmit={formik.handleSubmit}>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -64,7 +65,7 @@ function LoginForm(props) {
       {formik.touched.password && formik.errors.password && (
         <p className={css.errorMsg}>{formik.errors.password}</p>
       )}
-      <button type='submit'>Login</button>
+      <Button></Button>
     </form>
   );
 }
