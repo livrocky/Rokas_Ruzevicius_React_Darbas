@@ -1,5 +1,13 @@
+import AddForm from '../../components/AddForm/AddForm';
+import css from '../AddPage/AddPage.module.css';
+
 function AddPage() {
-  return <h1>Add Page</h1>;
+  return (
+    <div>
+      <h1 className={css.title}>Add Skills</h1>
+      <AddForm />
+    </div>
+  );
 }
 
 export default AddPage;
