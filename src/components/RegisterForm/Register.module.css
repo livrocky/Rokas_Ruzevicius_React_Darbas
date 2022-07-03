@@ -1,8 +1,11 @@
-.container{
+.register-container{
 
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 0 5%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 3% 3%;
+  border-radius: 0.5rem;
+  border: 1px solid lightseagreen;;
+  box-shadow: 5px 10px 18px #888888;
 
       }
 
@@ -14,8 +17,9 @@
         width: 100%;
         margin-bottom: 10px;
         padding: 10px;
-        border: 1px solid rgb(224, 219, 219);
         border-radius: 0.2rem;
+        border: 1px solid lightseagreen;;
+margin-top: 5px;
       }
 
 
@@ -23,7 +27,12 @@
         color: tomato;
         margin-top: -10px;
       }
+  
 
-      .input {
-        background-color: green;
-      }
+    .error-input {
+        border: 1px solid tomato;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }

@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
+import Button from '../UI/Button/Button';
 // import { useContext } from 'react';
-import Button from '../Button/Button';
 
 const initValues = {
   email: '',
@@ -67,42 +67,47 @@ function RegisterForm() {
   }
 
   return (
-    <form className={css.container} onSubmit={formik.handleSubmit} onBlur={matchPass}>
+    <form className={css['register-container']} onSubmit={formik.handleSubmit} onBlur={matchPass}>
+      <label htmlFor='email'>Enter your Email:</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.email}
-        className={formik.touched.email && formik.errors.email ? css.errorInput : ''}
+        className={formik.touched.email && formik.errors.email ? css['error-input'] : ''}
         name='email'
         type='text'
         placeholder='Enter your email'
+        id='email'
       />
       {formik.touched.email && formik.errors.email && (
         <p className={css.errorMsg}>{formik.errors.email}</p>
       )}
+      <label htmlFor='password'>Enter Your Password:</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.password}
-        className={formik.touched.password && formik.errors.password ? css.errorInput : ''}
+        className={formik.touched.password && formik.errors.password ? css['error-input'] : ''}
         name='password'
         type='password'
         placeholder='Enter your password'
+        id='password'
       />
       {formik.touched.password && formik.errors.password && (
         <p className={css.errorMsg}>{formik.errors.password}</p>
       )}
-
+      <label htmlFor='repeatPassword'>Repeat Your Password:</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.repeatPassword}
         className={
-          formik.touched.repeatPassword && formik.errors.repeatPassword ? css.errorInput : ''
+          formik.touched.repeatPassword && formik.errors.repeatPassword ? css['error-input'] : ''
         }
         name='repeatPassword'
         type='password'
         placeholder='Repeat your password'
+        id='repeatPassword'
       />
       {formik.touched.repeatPassword && formik.errors.repeatPassword && (
         <p className={css.errorMsg}>{formik.errors.repeatPassword}</p>
@@ -114,5 +119,3 @@ function RegisterForm() {
 }
 
 export default RegisterForm;
-
-//************************************************************/

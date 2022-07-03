@@ -5,7 +5,7 @@ import { baseUrl, myFetch } from '../../utils';
 // import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
-import Button from '../Button/Button';
+import Button from '../UI/Button/Button';
 
 const initValues = {
   email: 'rokas@rokas.lt',
@@ -41,26 +41,30 @@ function LoginForm() {
 
   return (
     <form className={css['login-container']} onSubmit={formik.handleSubmit}>
+      <label htmlFor='email'>Enter Your Email</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.email}
-        className={formik.touched.email && formik.errors.email ? css.errorInput : ''}
+        className={formik.touched.email && formik.errors.email ? css['error-input'] : ''}
         name='email'
         type='text'
-        placeholder='Your email'
+        placeholder='Enter Your email'
+        id='email'
       />
       {formik.touched.email && formik.errors.email && (
         <p className={css.errorMsg}>{formik.errors.email}</p>
       )}
+      <label htmlFor='password'>Enter Your Password</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.password}
-        className={formik.touched.password && formik.errors.password ? css.errorInput : ''}
+        className={formik.touched.password && formik.errors.password ? css['error-input'] : ''}
         name='password'
         type='password'
         placeholder='Your password'
+        id='password'
       />
       {formik.touched.password && formik.errors.password && (
         <p className={css.errorMsg}>{formik.errors.password}</p>
