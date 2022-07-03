@@ -23,7 +23,7 @@ function LoginForm() {
     onSubmit: async (values) => {
       console.log('values ===', values);
 
-      const fetchResult = await myFetch(`${baseUrl}/login`, 'POST', values);
+      const fetchResult = await myFetch(`${baseUrl}/v1/auth/login`, 'POST', values);
       // ar gavom token
       if (fetchResult.msg === 'Successfully logged in') {
         // turim token

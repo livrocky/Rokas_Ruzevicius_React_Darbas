@@ -1,8 +1,10 @@
-header {
-  /* border: 2px   solid brown; */
-    /* background-color:snow; */
+/* header {
+  border: 2px   solid brown;
+    background-color:snow;
   }
-  
+   */
+
+   
   .main-nav {
     gap: 20px;
     display: flex;
@@ -12,9 +14,7 @@ header {
   
   .nav-link {
     padding: 15px 20px;
-    /* margin: 20px; */
     text-decoration: none;
-    /* border-radius: 0.5rem; */
   }
 
   .nav-link:hover {

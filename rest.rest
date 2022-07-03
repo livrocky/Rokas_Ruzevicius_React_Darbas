@@ -6,3 +6,11 @@ Content-Type: application/json
     "email": "rokas@burokas.com",
     "password": "123456"
 }
+###
+POST https://autumn-delicate-wilderness.glitch.me/v1/content/skills
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDg0LCJlbWFpbCI6InJva2FzQHJva2FzLmx0IiwiaWF0IjoxNjU2ODQzNDY3fQ.XK7eYKDCvz_XXn37IBvg4FTunEnd2Frc4-Y4wbB_tCk
+
+{
+    "text": "text",
+    "textarea": "textarea"
+}

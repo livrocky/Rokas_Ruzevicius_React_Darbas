@@ -48,7 +48,7 @@ function RegisterForm() {
       delete valuesCopy['repeatPassword'];
       console.log('values ===', values);
       console.log('valuesCopy ===', valuesCopy);
-      const registerResult = await myFetch(`${baseUrl}/register`, 'POST', valuesCopy);
+      const registerResult = await myFetch(`${baseUrl}/v1/auth/register`, 'POST', valuesCopy);
       if (registerResult.changes === 1) {
         ctx.login(registerResult.token, valuesCopy.email);
         history.replace('/login');
