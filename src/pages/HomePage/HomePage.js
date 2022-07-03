@@ -1,8 +1,8 @@
-import Card from '../components/Card/Card';
 import { useState, useEffect } from 'react';
-import { baseUrl, myFetchAuth } from '../utils';
-import { useAuthCtx } from '../store/authContext';
+import { baseUrl, myFetchAuth } from '../../utils';
+import { useAuthCtx } from '../../store/authContext';
 import { useHistory } from 'react-router-dom';
+import Card from '../../components/Card/Card';
 
 function HomePage() {
   const history = useHistory();
@@ -25,11 +25,7 @@ function HomePage() {
 
   return (
     <div className='container'>
-      <h1 className='display'>Our Posts</h1>
-      {/* <Link to='/posts/bubble'>Go to bubble</Link>
-      <Route path='/posts/bubble'>
-        <h2>I am bubble page section</h2>
-      </Route> */}
+      <h1 className='display'>Our Skills</h1>
       <div className=''>
         {skills.map((sObj) => (
           <Card key={sObj.id} {...sObj} />
