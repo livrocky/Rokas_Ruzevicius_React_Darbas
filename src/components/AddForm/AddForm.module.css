@@ -18,3 +18,14 @@
 .error-input {
     border: 1px solid tomato;
 }
+
+textarea{
+    margin-bottom: 9px;
+    max-width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
