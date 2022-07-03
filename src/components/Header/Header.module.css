@@ -30,3 +30,8 @@ header {
 .img {
   width: 80px;
 }
+
+.login-logout-nav {
+  display: flex;
+  align-items: center;
+}

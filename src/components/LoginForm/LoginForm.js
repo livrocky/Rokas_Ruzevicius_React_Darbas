@@ -30,7 +30,7 @@ function LoginForm() {
 
         ctx.login(fetchResult.token, values.email);
         // redirect to /posts
-        history.replace('/home');
+        history.replace('/');
       }
       console.log('fetchResult ===', fetchResult);
     },
@@ -40,7 +40,7 @@ function LoginForm() {
   // console.log('formik.values ===', formik.values);
 
   return (
-    <form className={css.container} onSubmit={formik.handleSubmit}>
+    <form className={css['login-container']} onSubmit={formik.handleSubmit}>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}

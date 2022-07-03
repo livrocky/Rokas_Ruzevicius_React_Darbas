@@ -22,29 +22,34 @@ function Header(props) {
               </NavLink>
             </>
           )}
-          {isUserLoggedIn && (
-            <>
+        </div>
+        {isUserLoggedIn && (
+          <>
+            <div className={css['nav-control-display']}>
               <NavLink className={css['nav-link']} to={'/'}>
                 Home
               </NavLink>
               <NavLink className={css['nav-link']} to={'/add'}>
                 Add
               </NavLink>
-              <NavLink onClick={logout} className={css['nav-link']} to={'/login'}>
-                Logout
-              </NavLink>
-              {isUserLoggedIn && (
-                <p className={css['user-email']}>
-                  <b>Logged in as:</b> {userEmail}
-                </p>
-              )}
-              {/* <a className='nav-link disabled' href='#'>
-                Hello {userEmail.split('@')[0]}
-                {userEmail}
-              </a> */}
-            </>
-          )}
-        </div>
+            </div>
+
+            <div className={css['login-logout-nav']}>
+              <div>
+                <NavLink onClick={logout} className={css['nav-link']} to={'/login'}>
+                  Logout
+                </NavLink>
+              </div>
+              <div>
+                {isUserLoggedIn && (
+                  <p className={css['user-email']}>
+                    <b>Logged in as:</b> {userEmail}
+                  </p>
+                )}
+              </div>
+            </div>
+          </>
+        )}
       </nav>
     </header>
   );
