@@ -38,12 +38,9 @@ function LoginForm() {
     },
   });
 
-  //   console.log('formik.touched ===', formik.touched);
-  // console.log('formik.values ===', formik.values);
-
   return (
     <form className={css['login-container']} onSubmit={formik.handleSubmit}>
-      <label htmlFor='email'>Enter Your Email</label>
+      <label htmlFor='email'>Enter Your Email:</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -51,13 +48,13 @@ function LoginForm() {
         className={formik.touched.email && formik.errors.email ? css['error-input'] : ''}
         name='email'
         type='text'
-        placeholder='Enter Your email'
+        placeholder='Your Email'
         id='email'
       />
       {formik.touched.email && formik.errors.email && (
         <p className={css.errorMsg}>{formik.errors.email}</p>
       )}
-      <label htmlFor='password'>Enter Your Password</label>
+      <label htmlFor='password'>Enter Your Password:</label>
       <input
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -65,7 +62,7 @@ function LoginForm() {
         className={formik.touched.password && formik.errors.password ? css['error-input'] : ''}
         name='password'
         type='password'
-        placeholder='Your password'
+        placeholder='Your Password'
         id='password'
       />
       {formik.touched.password && formik.errors.password && (

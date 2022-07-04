@@ -6,6 +6,6 @@
       }
 
       button:hover {
-          color:bisque;
-          background-color:brown;
+          color:black;
+          background-color:rgba(38, 118, 224, 0.532);
       }

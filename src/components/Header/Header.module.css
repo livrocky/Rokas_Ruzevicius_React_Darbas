@@ -1,8 +1,7 @@
-/* header {
-  border: 2px   solid brown;
-    background-color:snow;
+header {
+    margin-bottom: 4rem;
   }
-   */
+  
 
    
   .main-nav {
@@ -18,7 +17,7 @@
   }
 
   .nav-link:hover {
-    background-color:lightseagreen;
+    background-color:rgb(32, 178, 171);
     color: snow;
 }
 
