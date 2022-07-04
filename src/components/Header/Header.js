@@ -40,7 +40,12 @@ function Header(props) {
                 <NavLink
                   onClick={() => {
                     logout();
-                    isUserLoggedIn && toast.error('You Are Logged Out!');
+                    isUserLoggedIn &&
+                      toast.custom(
+                        <div className={css['logout-msg']}>
+                          <i class='fa fa-sign-out' aria-hidden='true'></i> You Are Logged Out!
+                        </div>
+                      );
                     // toast.custom(<div className={css['logout-msg']}>'You Are Logged Out!'</div>);
                   }}
                   className={css['nav-link']}

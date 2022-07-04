@@ -25,14 +25,15 @@ function LoginForm() {
       console.log('values ===', values);
 
       const fetchResult = await myFetch(`${baseUrl}/v1/auth/login`, 'POST', values);
-      // ar gavom token
       if (fetchResult.msg === 'Successfully logged in') {
-        // turim token
         toast.success('Logged in Successfully!');
-
         ctx.login(fetchResult.token, values.email);
-        // redirect to /posts
         history.replace('/');
+      }
+      if (!fetchResult.token) {
+        toast.error('Your Email or Password is Incorrect!');
+        return;
+        // redirect to /posts
       }
       console.log('fetchResult ===', fetchResult);
     },

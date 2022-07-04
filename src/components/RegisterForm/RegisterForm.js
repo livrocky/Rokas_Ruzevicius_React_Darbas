@@ -27,23 +27,6 @@ function RegisterForm() {
         .oneOf([Yup.ref('password'), null], 'Passwords must match!'),
     }),
 
-    // onSubmit: async (values) => {
-    //   const valueCopy = { ...values };
-    //   delete valueCopy['repeatPassword'];
-    //   console.log('values ===', values);
-    //   console.log('valueCopy===', valueCopy);
-    //   const fetchResult = await myFetch(`${baseUrl}/register`, 'POST', valueCopy);
-    //   // ar gavom token
-    //   if (fetchResult.success) {
-    //     // turim token
-    //     ctx.register(fetchResult.token, valueCopy.email);
-    //     // redirect to /login
-    //     history.replace('/login');
-    //   }
-    //   console.log('fetchResult ===', fetchResult);
-    //   console.log('submitting values', values);
-    // },
-
     onSubmit: async (values) => {
       const valuesCopy = { ...values };
       delete valuesCopy['repeatPassword'];

@@ -22,6 +22,8 @@
 textarea{
     margin-bottom: 9px;
     max-width: 100%;
+    border-radius: 0.2rem;
+    border: 1px solid lightseagreen;
 }
 
 .input-group {
