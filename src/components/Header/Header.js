@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import css from './Header.module.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Header(props) {
   const { isUserLoggedIn, logout, userEmail } = useAuthCtx();
@@ -36,7 +37,15 @@ function Header(props) {
 
             <div className={css['login-logout-nav']}>
               <div>
-                <NavLink onClick={logout} className={css['nav-link']} to={'/login'}>
+                <NavLink
+                  onClick={() => {
+                    logout();
+                    isUserLoggedIn && toast.error('You Are Logged Out!');
+                    // toast.custom(<div className={css['logout-msg']}>'You Are Logged Out!'</div>);
+                  }}
+                  className={css['nav-link']}
+                  to={'/login'}
+                >
                   Logout
                 </NavLink>
               </div>

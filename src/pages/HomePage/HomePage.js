@@ -25,8 +25,8 @@ function HomePage() {
   }, []);
 
   return (
-    <div className='container'>
-      <h1 className='title'>Our Skills</h1>
+    <div className={css['container']}>
+      <h1 className='title'>Your Skills</h1>
       {/* <h3>Loading...</h3> */}
       <div className={css['cards-display']}>
         {skills.map((sObj) => (

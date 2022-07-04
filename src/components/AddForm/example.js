@@ -20,7 +20,7 @@ function AddForm() {
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
-      title: Yup.string().max(25).min(2).required(),
+      title: Yup.string().max(10).min(2).required(),
       description: Yup.string().min(4, 'At least 4 symbols are required').max(50).required(),
     }),
     onSubmit: async (values) => {

@@ -1,4 +1,13 @@
 .card {
     border: 1px solid lightseagreen;
+    border-radius: 0.5rem;
     padding: 15px;
+    width: 100px;
+
+}
+
+
+.card:hover {
+    background-color: rgb(200, 250, 247)
+
 }

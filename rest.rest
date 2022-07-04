@@ -12,6 +12,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDg0LCJlbWFpbCI6InJva2FzQHJva2FzLmx0IiwiaWF0IjoxNjU2ODQzNDY3fQ.XK7eYKDCvz_XXn37IBvg4FTunEnd2Frc4-Y4wbB_tCk
 
 {
-    "title": "The Third",
-    "description": "A great skill with a great description"
+    "title": "Skill Card",
+    "description": "five five five five five five five five five five"
 }

@@ -35,3 +35,10 @@
   display: flex;
   align-items: center;
 }
+
+.logout-msg {
+  color: white;
+  background-color: rgb(53, 142, 205);
+  padding: 10px;
+  border-radius: 0.5rem;
+}
