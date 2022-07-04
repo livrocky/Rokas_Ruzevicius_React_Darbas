@@ -8,3 +8,15 @@ body {
 .title{
     text-align: center;
 }
+
+a {
+    margin-left: 10px;
+}
+
+input {
+    background-color: transparent;
+}
+
+textarea {
+    background-color: transparent;
+}
