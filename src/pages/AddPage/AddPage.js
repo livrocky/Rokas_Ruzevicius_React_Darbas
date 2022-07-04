@@ -3,7 +3,7 @@ import css from '../AddPage/AddPage.module.css';
 
 function AddPage() {
   return (
-    <div>
+    <div className={css['container']}>
       <h1 className={css.title}>Add Skills</h1>
       <AddForm />
     </div>

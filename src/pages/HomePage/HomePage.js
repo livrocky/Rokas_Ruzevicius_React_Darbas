@@ -3,6 +3,7 @@ import { baseUrl, myFetchAuth } from '../../utils';
 import { useAuthCtx } from '../../store/authContext';
 import { useHistory } from 'react-router-dom';
 import Card from '../../components/Card/Card';
+import css from '../HomePage/HomePage.module.css';
 
 function HomePage() {
   const history = useHistory();
@@ -25,8 +26,9 @@ function HomePage() {
 
   return (
     <div className='container'>
-      <h1 className='display'>Our Skills</h1>
-      <div className=''>
+      <h1 className='title'>Our Skills</h1>
+      {/* <h3>Loading...</h3> */}
+      <div className={css['cards-display']}>
         {skills.map((sObj) => (
           <Card key={sObj.id} {...sObj} />
         ))}

@@ -18,21 +18,21 @@ function AddForm() {
     initialValues: initValues,
     validationSchema: Yup.object({
       title: Yup.string().max(10).min(2).required(),
-      desc: Yup.string().min(4, 'At least 4 symbols are required').max(50).required(),
+      description: Yup.string().min(4, 'At least 4 symbols are required').max(50).required(),
     }),
     onSubmit: async (values) => {
       console.log('values ===', values);
 
-      const fetchResult = await myFetch(`${baseUrl}/v1/content/skills`, 'POST', values);
+      const addFetch = await myFetch(`${baseUrl}/v1/content/skills`, 'POST', values);
       // ar gavom token
-      if (fetchResult.msg === 'Added new skill to account') {
+      if (addFetch.msg === 'Added new skill to account') {
         // turim token
 
-        ctx.add(fetchResult.token, values.email);
+        ctx.login(addFetch.token, values.title);
         // redirect to /posts
         history.replace('/');
       }
-      console.log('fetchResult ===', fetchResult);
+      console.log('fetchResult ===', addFetch);
     },
   });
 
@@ -55,21 +55,23 @@ function AddForm() {
         )}
       </div>
       <div className={css['input-group']}>
-        <label htmlFor='desc'>Enter Your Description:</label>
+        <label htmlFor='description'>Enter Your Description:</label>
         <textarea
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.desc}
-          className={formik.touched.desc && formik.errors.desc ? css['error-input'] : ''}
-          name='desc'
+          value={formik.values.description}
+          className={
+            formik.touched.description && formik.errors.description ? css['error-input'] : ''
+          }
+          name='description'
           type='text'
           placeholder='Your Description'
           // rows='4'
           // cols='62.9'
-          id='desc'
+          id='description'
         ></textarea>
-        {formik.touched.desc && formik.errors.desc && (
-          <p className={css.errorMsg}>{formik.errors.desc}</p>
+        {formik.touched.description && formik.errors.description && (
+          <p className={css.errorMsg}>{formik.errors.description}</p>
         )}
       </div>
 
