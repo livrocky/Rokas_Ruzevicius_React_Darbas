@@ -5,6 +5,7 @@ import { useAuthCtx } from '../../store/authContext';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
 import Button from '../UI/Button/Button';
+import toast, { Toaster } from 'react-hot-toast';
 // import { useContext } from 'react';
 
 const initValues = {
@@ -50,6 +51,7 @@ function RegisterForm() {
       console.log('valuesCopy ===', valuesCopy);
       const registerResult = await myFetch(`${baseUrl}/v1/auth/register`, 'POST', valuesCopy);
       if (registerResult.changes === 1) {
+        toast.success('Registered Successfully!');
         ctx.login(registerResult.token, valuesCopy.email);
         history.replace('/login');
       }

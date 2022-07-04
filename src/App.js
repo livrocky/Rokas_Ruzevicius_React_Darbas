@@ -7,10 +7,12 @@ import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <div className='App'>
+      <Toaster autoClose={8000} />
       <Header />
       <Switch>
         <Route path={'/register'}>
