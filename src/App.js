@@ -13,7 +13,7 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div className='App'>
-      <Toaster autoClose={8000} />
+      <Toaster autoClose={6000} />
       <Header />
       <Switch>
         <Route path={'/register'}>

@@ -22,7 +22,7 @@ function RegisterForm() {
       email: Yup.string().email('Patikrinkite savo email').required(),
       password: Yup.string().min(4, 'At least 4 symbols').max(20).required(),
       repeatPassword: Yup.string()
-        .required()
+        .required('repeat password is a required field')
         .oneOf([Yup.ref('password'), null], 'Passwords must match!'),
     }),
 
