@@ -41,7 +41,7 @@ function HomePage() {
       <div>
         <h1 className={css['title']}>Your skills</h1>
         <div className={css['container']}>
-          <h3>You don't have any skills added.</h3>
+          <h3 className={css['empty-page-text']}>You don't have any skills added.</h3>
         </div>
       </div>
     );

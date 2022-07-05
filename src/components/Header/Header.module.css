@@ -1,5 +1,7 @@
 header {
     margin-bottom: 3rem;
+    border: 1px solid lightseagreen;
+    background-color: rgba(240, 248, 255, 0.513);
   }
   
 
@@ -9,6 +11,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: -1px;
   }
   
   .nav-link {

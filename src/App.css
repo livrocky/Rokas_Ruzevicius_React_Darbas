@@ -1,7 +1,8 @@
 body {
     background-image: url("https://bridgingthegap.org/wp-content/uploads/2016/03/Office-Background-Blur.jpg");
-    background-repeat:no-repeat;
     background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     /* font-family: 'Montserrat', sans-serif; */
     font-family: 'Nunito Sans', sans-serif;
     font-size: 200;
