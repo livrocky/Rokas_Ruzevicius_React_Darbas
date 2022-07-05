@@ -69,7 +69,7 @@ function LoginForm() {
       {formik.touched.password && formik.errors.password && (
         <p className={css.errorMsg}>{formik.errors.password}</p>
       )}
-      <p>
+      <p className={css['reg-link-text']}>
         Don't have an account yet?
         <a href='/register' className={css['reg-link']}>
           Register here!

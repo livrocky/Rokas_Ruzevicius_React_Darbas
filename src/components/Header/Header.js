@@ -37,29 +37,29 @@ function Header(props) {
 
             <div className={css['login-logout-nav']}>
               <div>
+                {isUserLoggedIn && (
+                  <p className={css['user-email']}>
+                    <b>Logged in as:</b> {userEmail}
+                  </p>
+                )}
+              </div>
+              <div>
                 <NavLink
                   onClick={() => {
                     logout();
                     isUserLoggedIn &&
                       toast.custom(
                         <div className={css['logout-msg']}>
-                          <i class='fa fa-sign-out' aria-hidden='true'></i> You Are Logged Out!
+                          <i className={css['fa fa-sign-out']} aria-hidden='true'></i> You Are
+                          Logged Out!
                         </div>
                       );
-                    // toast.custom(<div className={css['logout-msg']}>'You Are Logged Out!'</div>);
                   }}
                   className={css['nav-link']}
                   to={'/login'}
                 >
                   Logout
                 </NavLink>
-              </div>
-              <div>
-                {isUserLoggedIn && (
-                  <p className={css['user-email']}>
-                    <b>Logged in as:</b> {userEmail}
-                  </p>
-                )}
               </div>
             </div>
           </>

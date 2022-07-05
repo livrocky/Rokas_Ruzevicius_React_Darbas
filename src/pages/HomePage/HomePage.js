@@ -12,8 +12,8 @@ function HomePage() {
   // console.log('token ===', token);
   const [skills, setSkills] = useState([]);
 
-  const getSkills = async () => {
-    const fetchResult = await myFetchAuth(`${baseUrl}/v1/content/skills`, token);
+  const getSkills = async (values) => {
+    const fetchResult = await myFetchAuth(`${baseUrl}/v1/content/skills`, 'GET', token, values);
     console.log('fetchResult ===', fetchResult);
     if (Array.isArray(fetchResult)) {
       setSkills(fetchResult);

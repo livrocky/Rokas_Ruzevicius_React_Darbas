@@ -6,7 +6,8 @@ import { baseUrl, myFetchAuth } from '../../utils';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import Button from '../UI/Button/Button';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 const initValues = {
   title: '',
@@ -15,8 +16,7 @@ const initValues = {
 function AddForm() {
   const history = useHistory();
   const { token } = useAuthCtx();
-  const [skills, setSkills] = useState();
-  // const ctx = useAuthCtx();
+  // const [skills, setSkills] = useState();
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
@@ -25,14 +25,18 @@ function AddForm() {
     }),
     onSubmit: async (values) => {
       console.log('values ===', values);
-      const addFetch = await myFetchAuth(`${baseUrl}/v1/content/skills`, token);
+      const addFetch = await myFetchAuth(`${baseUrl}/v1/content/skills`, 'POST', token, values);
       if (addFetch.msg === 'Added new skill to account') {
-        // turim token
-        // ctx.login(addFetch.token, token.title);
-        if (Array.isArray(addFetch)) {
-          setSkills(addFetch);
+        if (addFetch.msg === 'Added new skill to account') {
+          toast.success('New skill has been added!');
           history.replace('/');
         }
+        console.log('addResult ===', addFetch);
+        if (addFetch.err === 'Incorrect data sent') {
+          toast.error('Error while adding skill. Please try again.');
+          return;
+        }
+        console.log('submiting values ===', values);
       }
       console.log('fetchResult ===', addFetch);
     },

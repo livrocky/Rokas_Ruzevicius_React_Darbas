@@ -14,21 +14,39 @@ export async function myFetch(url, method = 'GET', data = null) {
   }
 }
 
-export async function myFetchAuth(url, token) {
+// export async function myFetchAuth(url, token) {
+//   try {
+//     const options = {
+//       headers: {
+//         'Content-Type': 'application/json',
+
+//         Authorization: `Bearer ${token}`,
+//       },
+//     };
+//     // console.log('options ===', options);
+//     const resp = await fetch(url, options);
+//     const dataInJs = await resp.json();
+//     return dataInJs;
+//   } catch (error) {
+//     console.log('myFetchAuth error ===', error);
+//   }
+// }
+
+export async function myFetchAuth(url, method = 'GET', token, data = null) {
   try {
     const options = {
       headers: {
         'Content-Type': 'application/json',
-
         Authorization: `Bearer ${token}`,
       },
     };
-    // console.log('options ===', options);
+    options.method = method === 'POST' ? 'POST' : 'GET';
+    options.body = data ? JSON.stringify(data) : null;
     const resp = await fetch(url, options);
     const dataInJs = await resp.json();
     return dataInJs;
   } catch (error) {
-    console.log('myFetchAuth error ===', error);
+    // console.log('myFetchAuth error ===', error);
   }
 }
 
