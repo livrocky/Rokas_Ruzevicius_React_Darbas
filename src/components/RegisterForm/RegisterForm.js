@@ -5,8 +5,7 @@ import { useAuthCtx } from '../../store/authContext';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
 import Button from '../UI/Button/Button';
-import toast, { Toaster } from 'react-hot-toast';
-// import { useContext } from 'react';
+import toast from 'react-hot-toast';
 
 const initValues = {
   email: '',

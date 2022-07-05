@@ -6,7 +6,7 @@ import { baseUrl, myFetch } from '../../utils';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import Button from '../UI/Button/Button';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const initValues = {
   email: 'rokas@rokas.lt',

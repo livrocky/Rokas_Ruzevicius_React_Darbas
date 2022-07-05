@@ -44,6 +44,7 @@ function AddForm() {
 
   useEffect(() => {
     if (token) myFetchAuth();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import css from './Header.module.css';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function Header(props) {
   const { isUserLoggedIn, logout, userEmail } = useAuthCtx();

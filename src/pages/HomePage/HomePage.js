@@ -22,19 +22,31 @@ function HomePage() {
 
   useEffect(() => {
     if (token) getSkills();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <div className={css['container']}>
-      <h1 className='title'>Your Skills</h1>
-      {/* <h3>Loading...</h3> */}
-      <div className={css['cards-display']}>
-        {skills.map((sObj) => (
-          <Card key={sObj.id} {...sObj} />
-        ))}
+  if (skills.length !== 0) {
+    return (
+      <div className={css['container']}>
+        <h1 className={css['title']}>Your Skills</h1>
+        {/* <h3>Loading...</h3> */}
+        <div className={css['cards-display']}>
+          {skills.map((sObj) => (
+            <Card key={sObj.id} {...sObj} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <h1 className={css['title']}>Your skills</h1>
+        <div className={css['container']}>
+          <h3>You don't have any skills added.</h3>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default HomePage;
