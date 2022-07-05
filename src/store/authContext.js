@@ -16,7 +16,6 @@ const AuthProvider = ({ children }) => {
   const [userEmail, setUserEmail] = useState('');
 
   const login = (gotToken, gotEmail) => {
-    // console.log('gotToken ===', gotToken);
     setToken(gotToken);
     setUserEmail(gotEmail);
     localStorage.setItem('token', gotToken);
@@ -38,8 +37,6 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
-
-// custom authCtx hook
 
 export const useAuthCtx = () => {
   return useContext(AuthContext);

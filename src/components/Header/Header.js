@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 function Header(props) {
   const { isUserLoggedIn, logout, userEmail } = useAuthCtx();
-  console.log('isUserLoggedIn===', isUserLoggedIn);
+  // console.log('isUserLoggedIn===', isUserLoggedIn);
   return (
     <header>
       <nav className={css['main-nav']}>

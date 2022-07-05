@@ -10,7 +10,7 @@ export async function myFetch(url, method = 'GET', data = null) {
     const dataInJs = await resp.json();
     return dataInJs;
   } catch (error) {
-    console.log('myFetch error ===', error);
+    throw new Error('error myFetch', error);
   }
 }
 

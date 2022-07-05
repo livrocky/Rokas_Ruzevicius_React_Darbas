@@ -2,15 +2,14 @@ import css from './LoginForm.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
-// import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import Button from '../UI/Button/Button';
 import toast from 'react-hot-toast';
 
 const initValues = {
-  email: 'rokas@rokas.lt',
-  password: 'labaslabas',
+  email: '',
+  password: '',
 };
 function LoginForm() {
   const history = useHistory();
@@ -22,7 +21,7 @@ function LoginForm() {
       password: Yup.string().min(4, 'At least 4 symbols are required').max(20).required(),
     }),
     onSubmit: async (values) => {
-      console.log('values ===', values);
+      // console.log('values ===', values);
 
       const fetchResult = await myFetch(`${baseUrl}/v1/auth/login`, 'POST', values);
       if (fetchResult.msg === 'Successfully logged in') {
@@ -33,9 +32,8 @@ function LoginForm() {
       if (!fetchResult.token) {
         toast.error('Your Email or Password is Incorrect!');
         return;
-        // redirect to /posts
       }
-      console.log('fetchResult ===', fetchResult);
+      // console.log('fetchResult ===', fetchResult);
     },
   });
 

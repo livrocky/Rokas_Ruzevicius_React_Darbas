@@ -16,7 +16,6 @@ const initValues = {
 function AddForm() {
   const history = useHistory();
   const { token } = useAuthCtx();
-  // const [skills, setSkills] = useState();
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
@@ -24,21 +23,21 @@ function AddForm() {
       description: Yup.string().min(4, 'At least 4 symbols are required').max(50).required(),
     }),
     onSubmit: async (values) => {
-      console.log('values ===', values);
+      // console.log('values ===', values);
       const addFetch = await myFetchAuth(`${baseUrl}/v1/content/skills`, 'POST', token, values);
       if (addFetch.msg === 'Added new skill to account') {
         if (addFetch.msg === 'Added new skill to account') {
           toast.success('New skill has been added!');
           history.replace('/');
         }
-        console.log('addResult ===', addFetch);
+        // console.log('addResult ===', addFetch);
         if (addFetch.err === 'Incorrect data sent') {
           toast.error('Error while adding skill. Please try again.');
           return;
         }
-        console.log('submiting values ===', values);
+        // console.log('submiting values ===', values);
       }
-      console.log('fetchResult ===', addFetch);
+      // console.log('fetchResult ===', addFetch);
     },
   });
 
@@ -77,8 +76,6 @@ function AddForm() {
           name='description'
           type='text'
           placeholder='Your Description'
-          // rows='4'
-          // cols='62.9'
           id='description'
         ></textarea>
         {formik.touched.description && formik.errors.description && (

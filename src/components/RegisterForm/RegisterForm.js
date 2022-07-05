@@ -29,27 +29,27 @@ function RegisterForm() {
     onSubmit: async (values) => {
       const valuesCopy = { ...values };
       delete valuesCopy['repeatPassword'];
-      console.log('values ===', values);
-      console.log('valuesCopy ===', valuesCopy);
+      // console.log('values ===', values);
+      // console.log('valuesCopy ===', valuesCopy);
       const registerResult = await myFetch(`${baseUrl}/v1/auth/register`, 'POST', valuesCopy);
       if (registerResult.changes === 1) {
         toast.success('Registered Successfully!');
         ctx.login(registerResult.token, valuesCopy.email);
         history.replace('/login');
       }
-      console.log('registerResult ===', registerResult);
+      // console.log('registerResult ===', registerResult);
       if (registerResult.changes !== 1) {
         toast.error('Registration failed!');
       }
 
-      console.log('submiting values ===', values);
+      // console.log('submiting values ===', values);
     },
   });
 
   function matchPass() {
     const { password, repeatPassword } = initValues;
     if (password !== repeatPassword) {
-      console.log('Passwords does not match');
+      // console.log('Passwords does not match');
     }
   }
 

@@ -14,9 +14,10 @@ function ProtectedRoute(props) {
       ) : (
         <>
           <div className={css.protectedMsg}>
-            <h2 className={css.subtitle}>Please login</h2>
+            <h2 className={css.subtitle}>This page is for members only.</h2>
+            {/* <p>You are not logged in yet.</p> */}
             <Link className={css.protectedLink} to={'/login'}>
-              Login here 👻
+              Please login here 🪴
             </Link>
           </div>
         </>
