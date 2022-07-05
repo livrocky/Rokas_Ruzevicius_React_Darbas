@@ -21,19 +21,16 @@ function LoginForm() {
       password: Yup.string().min(4, 'At least 4 symbols are required').max(20).required(),
     }),
     onSubmit: async (values) => {
-      // console.log('values ===', values);
-
       const fetchResult = await myFetch(`${baseUrl}/v1/auth/login`, 'POST', values);
       if (fetchResult.msg === 'Successfully logged in') {
         toast.success('Logged in Successfully!');
         ctx.login(fetchResult.token, values.email);
-        history.replace('/');
+        history.replace('/home');
       }
       if (!fetchResult.token) {
         toast.error('Your Email or Password is Incorrect!');
         return;
       }
-      // console.log('fetchResult ===', fetchResult);
     },
   });
 

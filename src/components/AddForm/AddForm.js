@@ -2,7 +2,6 @@ import css from './AddForm.module.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { baseUrl, myFetchAuth } from '../../utils';
-// import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 import Button from '../UI/Button/Button';
@@ -23,21 +22,17 @@ function AddForm() {
       description: Yup.string().min(4, 'At least 4 symbols are required').max(50).required(),
     }),
     onSubmit: async (values) => {
-      // console.log('values ===', values);
       const addFetch = await myFetchAuth(`${baseUrl}/v1/content/skills`, 'POST', token, values);
       if (addFetch.msg === 'Added new skill to account') {
         if (addFetch.msg === 'Added new skill to account') {
           toast.success('New skill has been added!');
-          history.replace('/');
+          history.replace('/home');
         }
-        // console.log('addResult ===', addFetch);
         if (addFetch.err === 'Incorrect data sent') {
           toast.error('Error while adding skill. Please try again.');
           return;
         }
-        // console.log('submiting values ===', values);
       }
-      // console.log('fetchResult ===', addFetch);
     },
   });
 

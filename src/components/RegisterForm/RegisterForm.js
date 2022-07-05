@@ -1,7 +1,6 @@
 import css from '../RegisterForm/Register.module.css';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
-import { useAuthCtx } from '../../store/authContext';
 import * as Yup from 'yup';
 import { baseUrl, myFetch } from '../../utils';
 import Button from '../UI/Button/Button';
@@ -15,7 +14,6 @@ const initValues = {
 
 function RegisterForm() {
   const history = useHistory();
-  const ctx = useAuthCtx();
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
@@ -29,32 +27,19 @@ function RegisterForm() {
     onSubmit: async (values) => {
       const valuesCopy = { ...values };
       delete valuesCopy['repeatPassword'];
-      // console.log('values ===', values);
-      // console.log('valuesCopy ===', valuesCopy);
       const registerResult = await myFetch(`${baseUrl}/v1/auth/register`, 'POST', valuesCopy);
       if (registerResult.changes === 1) {
         toast.success('Registered Successfully!');
-        ctx.login(registerResult.token, valuesCopy.email);
         history.replace('/login');
       }
-      // console.log('registerResult ===', registerResult);
       if (registerResult.changes !== 1) {
         toast.error('Registration failed!');
       }
-
-      // console.log('submiting values ===', values);
     },
   });
 
-  function matchPass() {
-    const { password, repeatPassword } = initValues;
-    if (password !== repeatPassword) {
-      // console.log('Passwords does not match');
-    }
-  }
-
   return (
-    <form className={css['register-container']} onSubmit={formik.handleSubmit} onBlur={matchPass}>
+    <form className={css['register-container']} onSubmit={formik.handleSubmit}>
       <label htmlFor='email'>Enter your Email:</label>
       <input
         onChange={formik.handleChange}
