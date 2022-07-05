@@ -3,6 +3,7 @@ import css from '../Card/Card.module.css';
 function Card(props) {
   return (
     <div className={css.card}>
+      <div className={['card-text']}></div>
       <h3 className={css['card-title']}>{props.title}</h3>
       <p className={css['card-description']}>{props.description}</p>
     </div>

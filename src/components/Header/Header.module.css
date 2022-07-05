@@ -19,6 +19,7 @@ header {
   .nav-link:hover {
     background-color:rgb(32, 178, 171);
     color: snow;
+    /* font-size: 18px; */
 }
 
 .container {

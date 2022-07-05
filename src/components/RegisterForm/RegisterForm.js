@@ -38,6 +38,9 @@ function RegisterForm() {
         history.replace('/login');
       }
       console.log('registerResult ===', registerResult);
+      if (registerResult.changes !== 1) {
+        toast.error('Registration failed!');
+      }
 
       console.log('submiting values ===', values);
     },
