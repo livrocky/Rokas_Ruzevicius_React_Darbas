@@ -30,3 +30,7 @@ textarea{
     flex-direction: column;
     align-items: stretch;
 }
+
+.add-btn {
+text-align: center;
+}

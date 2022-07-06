@@ -4,7 +4,7 @@ Skills Logging Application
 
 ## Short Description 🖥🖱
 
-This is an application that allows you to register and have a private access to your own skills logging system 📇. Every account has it's own space to create skill-cards. The webiste is protected for registered users only.
+This is an application that allows you to register and have a private access to your own skills logging system 📇. Every account has it's own space to create skill-cards. The webiste is protected for registered users only 🔐. Also available on mobile 📲
 
 ## HOW TO GET STARTED 🎬
 

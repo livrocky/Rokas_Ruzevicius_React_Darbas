@@ -84,8 +84,9 @@ function RegisterForm() {
       {formik.touched.repeatPassword && formik.errors.repeatPassword && (
         <p className={css.errorMsg}>{formik.errors.repeatPassword}</p>
       )}
-
-      <Button submit>Register</Button>
+      <div className={css['reg-button']}>
+        <Button submit>Register</Button>
+      </div>
     </form>
   );
 }

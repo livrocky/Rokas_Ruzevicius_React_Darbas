@@ -77,8 +77,9 @@ function AddForm() {
           <p className={css.errorMsg}>{formik.errors.description}</p>
         )}
       </div>
-
-      <Button submit>Add</Button>
+      <div className={css['add-btn']}>
+        <Button submit>Add</Button>
+      </div>
     </form>
   );
 }

@@ -17,3 +17,7 @@
 .error-input {
     border: 1px solid tomato;
 }
+
+.login-form-bottom {
+    text-align: center;
+}
