@@ -1,0 +1,12 @@
+.card {
+    border: 1px solid lightseagreen;
+    border-radius: 0.5rem;
+    padding: 15px;
+    width: 150px;
+
+}
+
+
+.card:hover {
+    background-color: rgba(222, 232, 240, 0.421);
+}

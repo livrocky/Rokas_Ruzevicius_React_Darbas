@@ -1,0 +1,39 @@
+.register-container{
+
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 3% 3%;
+  border-radius: 0.5rem;
+  border: 1px solid lightseagreen;;
+  box-shadow: 5px 10px 18px #888888;
+  background-color: rgba(240, 248, 255, 0.513);
+
+      }
+
+      input {
+        width: 96%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 0.2rem;
+        border: 1px solid lightseagreen;;
+        margin-top: 5px;
+      }
+
+
+      .errorMsg {
+        color: tomato;
+        margin-top: -10px;
+      }
+  
+
+    .error-input {
+        border: 1px solid tomato;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    .reg-button{
+      text-align: center;
+    }

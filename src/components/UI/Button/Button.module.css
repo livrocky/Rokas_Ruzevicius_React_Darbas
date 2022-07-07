@@ -1,0 +1,12 @@
+    .registerBtn {
+        font-size: 15px;
+        border: 1px solid lightseagreen; 
+        border-radius: 0.5rem;
+        padding: 10px 30px;
+        background-color: transparent;
+      }
+
+      button:hover {
+          color:snow;
+          background-color:rgba(38, 119, 224, 0.418);
+      }
